@@ -81,7 +81,7 @@ if (isset($_POST["login"])) {
       </div>
     <?php endif; ?>
     <form action="" method="post">
-      <h6 class="text-center">Aplikasi pengelolaan data buku</h6>
+      <h6 class="text-center">Aplikasi pengelolaan data obat</h6>
       <h3 class="text-center">Log in</h3>
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Username" name="username" value="<?= @$_POST['username'] ?>" required="required">

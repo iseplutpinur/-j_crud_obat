@@ -7,7 +7,7 @@ $message = false;
 $message_status = false;
 if (isset($_GET['delete'])) {
   $id = $_GET['delete'];
-  $result = mysqli_query($conn, "DELETE FROM penulis WHERE id = '$id'");
+  $result = mysqli_query($conn, "DELETE FROM jenis WHERE id = '$id'");
 
   // buat pesan untuk menandakan query berhasil atau tidak
   $message = $result ? "Data berhasil dihapus" : "Data gagal dihapus";
@@ -19,7 +19,7 @@ if (isset($_GET['delete'])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Penulis | CRUD Data Buku</title>
+  <title>Satuan | CRUD Data Obat</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,7 +30,7 @@ if (isset($_GET['delete'])) {
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="./index.php">CRUD Data Buku</a>
+    <a class="navbar-brand" href="./index.php">CRUD Data Obat</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -42,15 +42,15 @@ if (isset($_GET['delete'])) {
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" href="./penulis.php">Penulis</a>
+          <a class="nav-link" href="./satuan.php">Satuan</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="./penerbit.php">Penerbit</a>
+          <a class="nav-link active" href="./jenis.php">Jenis</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="./buku.php">Buku</a>
+          <a class="nav-link" href="./obat.php">Obat</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./logout.php">Logout</a>
@@ -68,8 +68,8 @@ if (isset($_GET['delete'])) {
     <div class="card shadow mt-3">
       <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
-          <label class="h6">Data Penulis</label>
-          <a href="./penulis-form.php" class="btn btn-sm btn-info">Tambah</a>
+          <label class="h6">Data Jenis</label>
+          <a href="./jenis-form.php" class="btn btn-sm btn-info">Tambah</a>
         </div>
       </div>
       <div class="card-body">
@@ -78,14 +78,14 @@ if (isset($_GET['delete'])) {
             <tr>
               <th scope="col">No</th>
               <th scope="col">Nama</th>
-              <th scope="col">Buku</th>
+              <th scope="col">Obat</th>
               <th scope="col">Deskripsi</th>
               <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
             <?php
-            $query = "SELECT ps.*, (SELECT count(*) FROM buku as bu WHERE ps.id = bu.penulis_id ) as buku FROM penulis as ps";
+            $query = "SELECT pt.*, (SELECT count(*) FROM obat as bu WHERE pt.id = bu.jenis_id ) as obat FROM jenis as pt";
 
             $result = mysqli_query($conn, $query);
             $counter = 0;
@@ -93,12 +93,12 @@ if (isset($_GET['delete'])) {
               $counter++;
               $row = (object)$row;
 
-              $btn_edit =  '<a href="./penulis-form.php?edit=' . $row->id . '" class="btn btn-sm btn-primary">Edit</a>';
-              $btn_delete =  '<a href="./penulis.php?delete=' . $row->id . '" onclick="return confirm(\'Apakah anda yakin?\')" class="btn btn-sm btn-danger">Hapus</a>';
+              $btn_edit =  '<a href="./jenis-form.php?edit=' . $row->id . '" class="btn btn-sm btn-primary">Edit</a>';
+              $btn_delete =  '<a href="./jenis.php?delete=' . $row->id . '" onclick="return confirm(\'Apakah anda yakin?\')" class="btn btn-sm btn-danger">Hapus</a>';
               echo "<tr>
               <th>$counter</th>
               <td>{$row->nama}</td>
-              <td>{$row->buku}</td>
+              <td>{$row->obat}</td>
               <td>{$row->deskripsi}</td>
               <td>$btn_edit  $btn_delete</td>
             </tr>";

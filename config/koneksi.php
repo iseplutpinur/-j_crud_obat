@@ -4,7 +4,7 @@ session_start();
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
-$dbname = "almardiy_j_buku";
+$dbname = "almardiy_j_obat";
 
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 function cek_login()
