@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2022 at 06:54 PM
+-- Generation Time: Jan 23, 2022 at 08:16 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -39,28 +39,6 @@ INSERT INTO `admin` (`id`, `nama`, `telepon`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `obat`
---
-
-CREATE TABLE `obat` (
-  `id` int(11) NOT NULL,
-  `satuan_id` int(11) NOT NULL,
-  `jenis_id` int(11) NOT NULL,
-  `nama` varchar(255) NOT NULL,
-  `harga` varchar(255) NOT NULL,
-  `deskripsi` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `obat`
---
-
-INSERT INTO `obat` (`id`, `satuan_id`, `jenis_id`, `nama`, `harga`, `deskripsi`) VALUES
-(2, 6, 6, 'Obat', 20000, 'des');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `jenis`
 --
 
@@ -77,6 +55,28 @@ CREATE TABLE `jenis` (
 INSERT INTO `jenis` (`id`, `nama`, `deskripsi`) VALUES
 (6, 'Nama Jenis', 'Des'),
 (7, 'fasdf', 'sdafsadf');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `obat`
+--
+
+CREATE TABLE `obat` (
+  `id` int(11) NOT NULL,
+  `satuan_id` int(11) NOT NULL,
+  `jenis_id` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `deskripsi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `obat`
+--
+
+INSERT INTO `obat` (`id`, `satuan_id`, `jenis_id`, `nama`, `harga`, `deskripsi`) VALUES
+(2, 6, 6, 'Obat', 20000, 'des');
 
 -- --------------------------------------------------------
 
@@ -108,15 +108,15 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `obat`
---
-ALTER TABLE `obat`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `jenis`
 --
 ALTER TABLE `jenis`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `obat`
+--
+ALTER TABLE `obat`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -136,16 +136,16 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `obat`
---
-ALTER TABLE `obat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT for table `jenis`
 --
 ALTER TABLE `jenis`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `obat`
+--
+ALTER TABLE `obat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `satuan`

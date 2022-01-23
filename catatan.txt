@@ -1,0 +1,18 @@
+Pengenalan aplikasi
+
+Tutorial instalasi
+
+Teknologi yang digunakan
+  PHP Versi 7 >
+  Bootstrap 4
+  MySQL Database
+
+Fitur
+  Autentikasi
+
+Tabel
+  Satuan
+  Jenis
+  Obat
+  admin
+

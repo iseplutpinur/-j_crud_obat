@@ -74,7 +74,7 @@ if (isset($_GET['edit'])) {
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="./index.php">CRUD Data Obat</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -164,9 +164,9 @@ if (isset($_GET['edit'])) {
     </div>
   </main>
 
-  <div class="footer bg-dark text-light py-3 mt-3">
+  <div class="footer bg-info text-light py-3 mt-3">
     <div class="container">
-      <p class="m-0">Copyright &copy 2022 | Handip yusuf kurniawan (2113201027)</p>
+      <p class="m-0">Copyright &copy 2022 | Raffy Azriel Syahputra Hadiyanto (2113201043)</p>
     </div>
   </div>
 
